@@ -130,11 +130,12 @@ event LogReceived(uint sku);
     items[sku].buyer = msg.sender;
     items[sku].state = State.Sold;
     uint _value = msg.value;
-    items[sku].seller.transfer(_value);
+    //items[sku].seller.transfer(_value);
+    items[sku].seller.transfer(items[sku].price);
     //uint _extra = _value - items[sku].price;
     //items[sku].buyer.transfer(_extra);
     emit LogSold(sku);  
-    
+ 
   }
 
   // 1. Add modifiers to check:
